@@ -48,6 +48,7 @@ const Quiz = (props) => {
     //}
     //let questions = quizzes[flowerID].questions[questionCount];
     let questions = quiz;
+    console.log('quiz: ',quiz);
 
     let handleSubmitQuiz = (event) => {
         setSubmitted(true);
