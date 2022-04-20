@@ -22,7 +22,7 @@ const Quiz = (props) => {
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
     const [quiz, setQuiz] = useState(undefined);
-    const [questions, setQuestions] = useState(undefined);
+    
     const {id} = useParams();
     
 
@@ -41,9 +41,7 @@ const Quiz = (props) => {
             });
         }
     })
-    if (quiz) {
-        setQuestions(quiz.questions[questionCount]);
-    }
+    
     //let flowerID;
     //for (let key in quizzes) {
     //    if (quizzes[key].name === props.flowerName) {
