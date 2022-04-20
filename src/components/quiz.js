@@ -34,7 +34,7 @@ const Quiz = (props) => {
             .then(x => {
                 console.log('x: ',x);
                 setQuiz(x);
-                setQuestions(quiz.questions[questionCount]);
+                //setQuestions(quiz.questions[questionCount]);
             })
             .catch(e => {
                 console.log(e);
