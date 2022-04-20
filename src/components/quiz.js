@@ -22,6 +22,7 @@ const Quiz = (props) => {
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
     const [quiz, setQuiz] = useState(undefined);
+    const [questions, setQuestions] = useState(undefined);
     //const {id} = useParams();
     
 
@@ -32,7 +33,9 @@ const Quiz = (props) => {
             apiAccess.getQuiz(props.flowerName)
             .then(x => {
                 console.log('x: ',x);
+                console.log('x.questions: ', x.questions);
                 setQuiz(x);
+                setQuestions(x.questions);
             })
             .catch(e => {
                 console.log(e);
@@ -48,12 +51,12 @@ const Quiz = (props) => {
     //    }
     //}
     //let questions = quizzes[flowerID].questions[questionCount];
-    let questions;
-    if (quiz) {
-        questions = quiz.questions[questionCount];
-    } else {
-            questions = quiz;
-    }
+//let questions;
+//if (quiz) {
+////questions = quiz.questions[questionCount];
+//} else {
+//////questions = quiz;
+//}
     //let questions = quiz.questions[questionCount];
     console.log('quiz: ',quiz);
 
