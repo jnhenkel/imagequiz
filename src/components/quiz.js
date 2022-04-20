@@ -29,6 +29,14 @@ const Quiz = (props) => {
     let navigate = useNavigate();
 
     useEffect(() => {
+    let flowerID;
+        for (let key in quizzes) {
+            if (quizzes[key].name === props.flowerName) {
+                flowerID = quizzes[key].id;
+            }
+        }
+        setQuestions(quizzes[flowerID].questions[questionCount]);
+        /*
         if (!quiz) {
             apiAccess.getQuiz(props.flowerName)
             .then(x => {
@@ -42,6 +50,7 @@ const Quiz = (props) => {
                 alert('Get quiz had an error.');
             });
         }
+        */
     }, [props]);
 
     //let flowerID;
@@ -59,6 +68,7 @@ const Quiz = (props) => {
 //}
     //let questions = quiz.questions[questionCount];
     console.log('quiz: ',quiz);
+    console.log('questions: ', questions);
 
     let handleSubmitQuiz = (event) => {
         setSubmitted(true);
