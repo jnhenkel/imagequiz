@@ -29,13 +29,7 @@ const Quiz = (props) => {
     let navigate = useNavigate();
 
     useEffect(() => {
-    let flowerID;
-        for (let key in quizzes) {
-            if (quizzes[key].name === props.flowerName) {
-                flowerID = quizzes[key].id;
-            }
-        }
-        setQuestions(quizzes[flowerID].questions[questionCount]);
+     console.log('from the useEffect');
         /*
         if (!quiz) {
             apiAccess.getQuiz(props.flowerName)
@@ -51,7 +45,7 @@ const Quiz = (props) => {
             });
         }
         */
-    }, [props]);
+    });
 
     //let flowerID;
     //for (let key in quizzes) {

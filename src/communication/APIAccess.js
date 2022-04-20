@@ -31,8 +31,8 @@ let apiAccess = {
         })
     },
 
-    getQuiz: (name) => {
-        return fetch(`${backendAddress}/quiz/${name}`) //get requests do not need headers, method, body
+    getQuiz: (name) => {//get requests do not need headers, method, body
+        return fetch(`${backendAddress}/quiz/${name}`) 
         .then(x => x.json())
         .then(x => {
             console.log(x);
