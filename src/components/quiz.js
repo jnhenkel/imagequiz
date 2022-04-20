@@ -42,7 +42,7 @@ const Quiz = (props) => {
                 alert('Get quiz had an error.');
             });
         }
-    }, [props.flowerName]);
+    }, [props]);
 
     //let flowerID;
     //for (let key in quizzes) {
