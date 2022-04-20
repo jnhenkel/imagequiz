@@ -22,6 +22,7 @@ const Quiz = (props) => {
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
     const [quiz, setQuiz] = useState(undefined);
+    const [questions, setQuestions] = useState(undefined);
     const {id} = useParams();
     
 
@@ -33,6 +34,7 @@ const Quiz = (props) => {
             .then(x => {
                 console.log('x: ',x);
                 setQuiz(x);
+                setQuestions(quiz.questions[questionCount]);
             })
             .catch(e => {
                 console.log(e);
@@ -48,8 +50,7 @@ const Quiz = (props) => {
     //    }
     //}
     //let questions = quizzes[flowerID].questions[questionCount];
-    let questions = quiz;
-    console.log('quiz: ',quiz);
+    
 
     let handleSubmitQuiz = (event) => {
         setSubmitted(true);
