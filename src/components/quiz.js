@@ -165,16 +165,16 @@ const Quiz = (props) => {
                                 What is this plant name?
                             </div>
                             <div className="choices form-check">
-                                <input type="radio" className="form-check-input" name="userChoice" value={questions.choices[0]} onChange={() => setUserAnswer(questions.choices[0])} id="userChoice1" />
-                                <label className="form-check-label" htmlFor="userChoice1">{questions.choices[0]}</label>
+                                <input type="radio" className="form-check-input" name="userChoice" value={questions && questions.choices[0]} onChange={() => setUserAnswer(questions.choices[0])} id="userChoice1" />
+                                <label className="form-check-label" htmlFor="userChoice1">{questions && questions.choices[0]}</label>
                             </div>
                             <div className="choices form-check">
-                                <input type="radio" className="form-check-input" name="userChoice" value={questions.choices[1]} onChange={() => setUserAnswer(questions.choices[1])} id="userChoice2" />
-                                <label className="form-check-label" htmlFor="userChoice2">{questions.choices[1]}</label>
+                                <input type="radio" className="form-check-input" name="userChoice" value={questions && questions.choices[1]} onChange={() => setUserAnswer(questions.choices[1])} id="userChoice2" />
+                                <label className="form-check-label" htmlFor="userChoice2">{questions && questions.choices[1]}</label>
                             </div>
                             <div className="choices form-check">
-                                <input type="radio" className="form-check-input" name="userChoice" value={questions.choices[2]} onChange={() => setUserAnswer(questions.choices[2])} id="userChoice3" />
-                                <label className="form-check-label" htmlFor="userChoice3">{questions.choices[2]}</label>
+                                <input type="radio" className="form-check-input" name="userChoice" value={questions && questions.choices[2]} onChange={() => setUserAnswer(questions.choices[2])} id="userChoice3" />
+                                <label className="form-check-label" htmlFor="userChoice3">{questions && questions.choices[2]}</label>
                             </div>
                         </div>
                         <div className="card-title">
