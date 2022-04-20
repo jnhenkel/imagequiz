@@ -29,7 +29,7 @@ const Quiz = (props) => {
 
     useEffect(() => {
         if (!quiz) {
-            apiAccess.getQuiz(id)
+            apiAccess.getQuiz(props.flowerName)
             .then(x => {
                 console.log('x: ',x);
                 setQuiz(x);
