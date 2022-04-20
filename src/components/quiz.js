@@ -50,6 +50,8 @@ const Quiz = (props) => {
     //let questions = quizzes[flowerID].questions[questionCount];
     if (quiz) {
     let questions = quiz.questions[questionCount];
+    } else {
+        let questions = quiz;
     }
     console.log('quiz: ',quiz);
 
