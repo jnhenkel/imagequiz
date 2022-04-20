@@ -57,8 +57,10 @@ const Quiz = (props) => {
 ////questions = quiz.questions[questionCount];
 //} else {
 //////questions = quiz;
-//}
+//} 
+    if (quiz) {
     let questions = quiz.questions[questionCount];
+    }
     console.log('quiz: ',quiz);
     console.log('questions: ', questions);
 
