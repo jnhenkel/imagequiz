@@ -30,7 +30,10 @@ const Quiz = (props) => {
     useEffect(() => {
         if (!quiz) {
             apiAccess.getQuiz(id)
-            .then(x => setQuiz(x))
+            .then(x => {
+                console.log('x: ',x);
+                setQuiz(x);
+            })
             .catch(e => {
                 console.log(e);
                 alert('Get quiz had an error.');
