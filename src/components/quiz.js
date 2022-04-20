@@ -22,7 +22,7 @@ const Quiz = (props) => {
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
     const [quiz, setQuiz] = useState(undefined);
-    const [questions, setQuestions] = useState(undefined);
+    //const [questions, setQuestions] = useState(undefined);
     //const {id} = useParams();
     
 
@@ -35,7 +35,7 @@ const Quiz = (props) => {
                 console.log('x: ',x);
                 console.log('x.questions: ', x.questions);
                 setQuiz(x);
-                setQuestions(x.questions[questionCount]);
+                //setQuestions(x.questions[questionCount]);
             })
             .catch(e => {
                 console.log(e);
@@ -58,7 +58,7 @@ const Quiz = (props) => {
 //} else {
 //////questions = quiz;
 //}
-    //let questions = quiz.questions[questionCount];
+    let questions = quiz.questions[questionCount];
     console.log('quiz: ',quiz);
     console.log('questions: ', questions);
 
@@ -67,12 +67,12 @@ const Quiz = (props) => {
         if (userAnswer === questions.answer) {
             handleChangeScore();
         }
-        setQuestions(quiz.questions[questionCount]);
     }
     let handleSubmitTryAgain = () => {
 
         setQuestionCount(questionCount + 1);
-        
+
+        //setQuestions(quiz.questions[questionCount]);
         setUserAnswer('');
         setSubmitted(false);
         if (questionCount >= 7) {
