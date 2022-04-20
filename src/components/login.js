@@ -27,7 +27,7 @@ const Login = (props) => {
             if (x.done) {
                 alert('Login successful');
                 props.userLoggedIn(email);
-                navigate('/');
+                navigate('/index');
             } else {
                 alert('Invalid credentials. Please try again.');
             }
