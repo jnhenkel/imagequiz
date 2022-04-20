@@ -19,11 +19,11 @@ const Login = (props) => {
 
     let handleSubmit = (event) => {
         let search = usersData.users.find(db =>
-            (username.toLowerCase() == db.username.toLowerCase() || username.toLowerCase() == db.email.toLowerCase()) && password == db.password
+            (email.toLowerCase() == db.email.toLowerCase() || email.toLowerCase() == db.email.toLowerCase()) && password == db.password
         );
         if (search) {
             alert('Login successful');
-            props.userLoggedIn(username);
+            props.userLoggedIn(email);
             navigate('/index');
         } else {
             alert('Invalid credentials. Please try again.');
