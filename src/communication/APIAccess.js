@@ -10,7 +10,22 @@ let apiAccess = {
             body: JSON.stringify({name, email, password})
         })
         .then(x => x.json())
-        .then( x => {
+        .then(x => {
+            console.log(x);
+            return x;
+        })
+    },
+
+    login: (email, password) => {
+        return fetch(`${backendAddress}/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, password})
+        })
+        .then(x => x.json())
+        .then(x => {
             console.log(x);
             return x;
         })

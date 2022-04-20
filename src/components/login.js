@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import usersData from '../users';
+import apiAccess from '../communication/APIAccess';
 
 
 const Login = (props) => {
@@ -18,16 +19,23 @@ const Login = (props) => {
     }
 
     let handleSubmit = (event) => {
-        let search = usersData.users.find(db =>
-            (email.toLowerCase() == db.email.toLowerCase() || email.toLowerCase() == db.email.toLowerCase()) && password == db.password
-        );
-        if (search) {
-            alert('Login successful');
-            props.userLoggedIn(email);
-            navigate('/index');
-        } else {
-            alert('Invalid credentials. Please try again.');
-        }
+        //let search = usersData.users.find(db =>
+        //    (email.toLowerCase() == db.email.toLowerCase() || email.toLowerCase() == db.email.toLowerCase()) && password == db.password
+        //);
+        apiAccess.login(email, password)
+        .then(x => {
+            if (x.done) {
+                alert('Login successful');
+                props.userLoggedIn(email);
+                navigate('/');
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        })
+        .catch(e => {
+            console.log(e);
+            alert('Something went wrong.');
+        });
         event.preventDefault();
     }
 
