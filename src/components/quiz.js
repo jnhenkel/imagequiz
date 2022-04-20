@@ -35,6 +35,7 @@ const Quiz = (props) => {
                 console.log('x: ',x);
                 console.log('x.questions: ', x.questions);
                 setQuiz(x);
+                setQuestions(quiz.questions[questionCount]);
             })
             .catch(e => {
                 console.log(e);
@@ -43,9 +44,7 @@ const Quiz = (props) => {
         }
         
     }, [props]);
-    if (quiz) {
-        setQuestions(quiz.questions[questionCount]);
-    }
+    
     //let flowerID;
     //for (let key in quizzes) {
     //    if (quizzes[key].name === props.flowerName) {
@@ -72,6 +71,7 @@ const Quiz = (props) => {
     let handleSubmitTryAgain = () => {
 
         setQuestionCount(questionCount + 1);
+        setQuestions(quiz.questions[questionCount]);
         setUserAnswer('');
         setSubmitted(false);
         if (questionCount >= 7) {
