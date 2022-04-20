@@ -41,7 +41,7 @@ const Quiz = (props) => {
             });
         }
     })
-    
+    let questions = quiz.questions[questionCount];
     //let flowerID;
     //for (let key in quizzes) {
     //    if (quizzes[key].name === props.flowerName) {
