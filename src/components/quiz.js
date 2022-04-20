@@ -72,7 +72,7 @@ const Quiz = (props) => {
     let handleSubmitTryAgain = () => {
 
         setQuestionCount(questionCount + 1);
-        setQuestions(quiz.questions[questionCount]);
+        
         setUserAnswer('');
         setSubmitted(false);
         if (questionCount >= 7) {
