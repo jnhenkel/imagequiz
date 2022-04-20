@@ -58,8 +58,9 @@ const Quiz = (props) => {
 //} else {
 //////questions = quiz;
 //} 
+    let questions;
     if (quiz) {
-    let questions = quiz.questions[questionCount];
+        questions = quiz.questions[questionCount];
     }
     console.log('quiz: ',quiz);
     console.log('questions: ', questions);
