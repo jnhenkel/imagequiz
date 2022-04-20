@@ -22,13 +22,13 @@ const Quiz = (props) => {
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
     const [quiz, setQuiz] = useState(undefined);
-    const {id} = useParams();
+    //const {id} = useParams();
     
 
     let navigate = useNavigate();
 
-    useEffect(() => {
-        if (!quiz) {
+    //useEffect(() => {
+        //if (!quiz) {
             apiAccess.getQuiz(props.flowerName)
             .then(x => {
                 console.log('x: ',x);
@@ -38,8 +38,8 @@ const Quiz = (props) => {
                 console.log(e);
                 alert('Get quiz had an error.');
             });
-        }
-    });
+        //}
+    //});
 
     //let flowerID;
     //for (let key in quizzes) {
