@@ -48,7 +48,7 @@ code {
   margin: auto;
 }
 
-#username, #password, #nameLabel, #passwordLabel, #emailLabel {
+#name, #password, #nameLabel, #passwordLabel, #emailLabel {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 600;
   max-width: 350px;
