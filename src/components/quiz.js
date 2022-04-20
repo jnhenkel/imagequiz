@@ -34,7 +34,6 @@ const Quiz = (props) => {
             .then(x => {
                 console.log('x: ',x);
                 setQuiz(x);
-                //setQuestions(quiz.questions[questionCount]);
             })
             .catch(e => {
                 console.log(e);
@@ -42,7 +41,9 @@ const Quiz = (props) => {
             });
         }
     })
-
+    if (quiz) {
+        setQuestions(quiz.questions[questionCount]);
+    }
     //let flowerID;
     //for (let key in quizzes) {
     //    if (quizzes[key].name === props.flowerName) {
@@ -51,6 +52,7 @@ const Quiz = (props) => {
     //}
     //let questions = quizzes[flowerID].questions[questionCount];
     
+    console.log('quiz: ',quiz);
 
     let handleSubmitQuiz = (event) => {
         setSubmitted(true);
