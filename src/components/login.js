@@ -6,12 +6,12 @@ import usersData from '../users';
 
 
 const Login = (props) => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     let navigate = useNavigate();
 
-    let handleUsername = (event) => {
-        setUsername(event.target.value);
+    let handleEmail = (event) => {
+        setEmail(event.target.value);
     }
     let handlePassword = (event) => {
         setPassword(event.target.value);
@@ -36,10 +36,10 @@ const Login = (props) => {
             <div className='container' id='login'>
                 <h1 className='container' >Login</h1>
                 <div className='row'>
-                    <label htmlFor='username' id='usernameLabel'>Username or Email: </label>
+                    <label htmlFor='email' id='emailLabel'>Email: </label>
                 </div>
                 <div className='row'>
-                    <input type='text' name='username' id='username' autoComplete='username' value={username} onChange={handleUsername}></input>
+                    <input type='text' name='email' id='email' autoComplete='email' value={email} onChange={handleEmail}></input>
                 </div>
                 <div className='row'>
                     <label htmlFor='password' id='passwordLabel'>Password: </label>
