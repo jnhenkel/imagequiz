@@ -29,7 +29,16 @@ let apiAccess = {
             console.log(x);
             return x;
         })
-    }
+    },
+
+    getQuiz: (name) => {
+        return fetch(`${backendAddress}/quiz/${name}`) //get requests do not need headers, method, body
+        .then(x => x.json())
+        .then(x => {
+            console.log(x);
+            return x.result;
+        });
+    }    
 }
 
 export default apiAccess;

@@ -1,7 +1,8 @@
 import quizzes from "../data/data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import apiAccess from "../communication/APIAccess";
 
 /* 
 quizzes(27) {
@@ -20,19 +21,30 @@ const Quiz = (props) => {
     const [userAnswer, setUserAnswer] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
+    const [quiz, setQuiz] = useState(undefined);
+    const {id} = useParams();
     
 
     let navigate = useNavigate();
 
-    let flowerID;
-    for (let key in quizzes) {
-        if (quizzes[key].name === props.flowerName) {
-            flowerID = quizzes[key].id;
+    useEffect(() => {
+        if (!quiz) {
+            apiAccess.getQuiz(id)
+            .then(x => setQuiz(x))
+            .catch(e => {
+                console.log(e);
+                alert('Get quiz had an error.');
+            });
         }
-    }
-    
-
-    let questions = quizzes[flowerID].questions[questionCount];
+    })
+    //let flowerID;
+    //for (let key in quizzes) {
+    //    if (quizzes[key].name === props.flowerName) {
+    //        flowerID = quizzes[key].id;
+    //    }
+    //}
+    //let questions = quizzes[flowerID].questions[questionCount];
+    let questions = quiz;
 
     let handleSubmitQuiz = (event) => {
         setSubmitted(true);
