@@ -159,7 +159,7 @@ const Quiz = (props) => {
                     </>
                     :
                     <div className="card">
-                        <img className="card-img-top quiz-img" src={questions.picture} />
+                        <img className="card-img-top quiz-img" src={questions && questions.picture} />
                         <div className="card-body">
                             <div className="question">
                                 What is this plant name?
