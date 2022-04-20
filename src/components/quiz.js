@@ -28,7 +28,7 @@ const Quiz = (props) => {
     let navigate = useNavigate();
 
     //useEffect(() => {
-        if (!quiz) {
+        //if (!quiz) {
             apiAccess.getQuiz(props.flowerName)
             .then(x => {
                 console.log('x: ',x);
@@ -38,9 +38,9 @@ const Quiz = (props) => {
                 console.log(e);
                 alert('Get quiz had an error.');
             });
-        }
+        //}
     //},[])
-    
+
     //let flowerID;
     //for (let key in quizzes) {
     //    if (quizzes[key].name === props.flowerName) {
