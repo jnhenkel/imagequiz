@@ -27,7 +27,7 @@ const Quiz = (props) => {
 
     let navigate = useNavigate();
 
-    useEffect(() => {
+    //useEffect(() => {
         //if (!quiz) {
             apiAccess.getQuiz(props.flowerName)
             .then(x => {
@@ -39,7 +39,7 @@ const Quiz = (props) => {
                 alert('Get quiz had an error.');
             });
         //}
-    }, [quiz]);
+    //}, [quiz]);
 
     //let flowerID;
     //for (let key in quizzes) {
@@ -53,7 +53,7 @@ const Quiz = (props) => {
     } else {
         let questions = quiz;
     }
-    let questions = quiz;
+    let questions = quiz.questions[questionCount];
     console.log('quiz: ',quiz);
 
     let handleSubmitQuiz = (event) => {
