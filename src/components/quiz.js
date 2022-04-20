@@ -48,12 +48,13 @@ const Quiz = (props) => {
     //    }
     //}
     //let questions = quizzes[flowerID].questions[questionCount];
+    let questions;
     if (quiz) {
-    let questions = quiz.questions[questionCount];
+        questions = quiz.questions[questionCount];
     } else {
-        let questions = quiz;
+            questions = quiz;
     }
-    let questions = quiz.questions[questionCount];
+    //let questions = quiz.questions[questionCount];
     console.log('quiz: ',quiz);
 
     let handleSubmitQuiz = (event) => {
