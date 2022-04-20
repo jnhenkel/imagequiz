@@ -35,7 +35,6 @@ const Quiz = (props) => {
                 console.log('x: ',x);
                 console.log('x.questions: ', x.questions);
                 setQuiz(x);
-                setQuestions(x.questions[questionCount]);
             })
             .catch(e => {
                 console.log(e);
@@ -44,7 +43,7 @@ const Quiz = (props) => {
         }
         
     }, [props]);
-
+    setQuestions(x.questions[questionCount]);
     //let flowerID;
     //for (let key in quizzes) {
     //    if (quizzes[key].name === props.flowerName) {
