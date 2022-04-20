@@ -53,6 +53,7 @@ const Quiz = (props) => {
     } else {
         let questions = quiz;
     }
+    let questions = quiz;
     console.log('quiz: ',quiz);
 
     let handleSubmitQuiz = (event) => {
