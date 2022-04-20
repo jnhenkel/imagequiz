@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nav-item {
+  /* background-color: rgb(236, 28, 28); */
+  margin: 2px 10px 2px 0px;
+}
+  
+.nav-link, .navbar-brand {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 22px;
+  color: burlywood !important;
+}
+
+#navigation {
+  max-width:10%;
+}
+
+.navBar {
+  margin: auto;
+}
+
+#login, #register {
+  max-width: 75%;
+  padding: 20px 40px 70px 40px;
+  margin-top: 40px;
+  background-color: chocolate;
+}
+
+#login {
+  max-width: 70% !important;
+  
+}
+
+#registerForm {
+  padding-bottom: 70px;
+  margin: auto;
+}
+
+#username, #password, #usernameLabel, #passwordLabel, #emailLabel {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+  max-width: 350px;
+  margin: auto;
+}
+
+#usernameLabel, #passwordLabel, #emailLabel {
+  font-size: 20px;
+}
+
+#register {
+  padding: 30px 0 0 30px;
+}
+  
+#registerForm {
+  max-width: 300px;
+  width: 80%;
+  min-width: 150px;
+}
+
+.row {
+  padding: 15px 0 0 0;
+}
+
+.card {
+  border: 2px solid black;
+  background-color: burlywood;
+}
+
+.card-title {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+  align-self: center;
+}
+.card-body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+  font-size: 20px;
+  align-self: center;
+  text-align: center;
+  
+}
+.card-img-top {
+  width: 100%;
+  height: 25vw;
+  object-fit: scale-down;
+  background-color: lightslategray;
+}
+
+.quiz-img {
+  width: 100%;
+  height: 22vw;
+  object-fit: contain;
+  background-color: lightslategray;
+}
+
+body {
+  background-color: lightskyblue;
+}
+
+#submitRegister, #submitLogin, #submitTryAgain {
+  width: auto;
+  margin: auto;
+  margin-top: 16px;
+}
+
+.reply-positive {
+  color:forestgreen;
+  
+}
+
+.reply-negative {
+  color:crimson;
+}
+
+.form-check {
+  width: 120px;
+  margin: auto;
+  
+}
+
+.try-another {
+  margin-top: 10px;
+}
+
+#retakeQuizBtn {
+  margin-left: 15px;
+}
