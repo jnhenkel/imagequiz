@@ -110,7 +110,7 @@ const Quiz = (props) => {
                             <div className="card-body">
 
                                 <div className="answer">
-                                    The plant name is {questions.answer}
+                                    The plant name is {questions.answer} <br/>question count: {questionCount}
                                 </div>
                                 {userAnswer === questions.answer ?
                                     <>
