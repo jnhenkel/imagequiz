@@ -91,7 +91,7 @@ const Quiz = (props) => {
         navigate('/quiz');
     }
     let sendScore = () => {
-        apiAccess.postScore(props.user, props.flowerName, score)
+        return apiAccess.postScore(props.user, props.flowerName, score)
             .then(x => {
                 console.log(x);
                 alert('Score submitted.');
