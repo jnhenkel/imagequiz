@@ -1,20 +1,30 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
-import {React, useState} from 'react';
+import {React, useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import flowers from '../data/flowers.js';
+import apiAccess from '../communication/APIAccess';
 
 const Flowers = (props) => {
   const [flowerName, setFlowerName] = useState('');
+  const [flowers, setFlowers] = useState([]);
   
   let navigate = useNavigate();
+
+  useEffect(() => {
+    apiAccess.getFlowers()
+    .then(x => setFlowers(x))
+    .catch(e => {
+      console.log(e);
+      alert('Something went wrong getting flowers');
+    })
+  })
 
   let handleClick = (name) => {
     props.selectedFlower(name);
     setFlowerName(name);
-    navigate('/quiz');
+    navigate('/quiz/');
   }
-  
 
   let keyCount = 0; //for making unique keys to avoid non-fatal errors
   let flowerLinks = flowers.map(flower => {

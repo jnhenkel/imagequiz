@@ -1,4 +1,3 @@
-import quizzes from "../data/data";
 import { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 import { useNavigate, useParams } from "react-router-dom";
@@ -22,9 +21,6 @@ const Quiz = (props) => {
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
     const [quiz, setQuiz] = useState(undefined);
-    //const [questions, setQuestions] = useState(undefined);
-    //const {id} = useParams();
-    
 
     let navigate = useNavigate();
 
@@ -35,7 +31,6 @@ const Quiz = (props) => {
                 console.log('x: ',x);
                 console.log('x.questions: ', x.questions);
                 setQuiz(x);
-                //setQuestions(x.questions[questionCount]);
             })
             .catch(e => {
                 console.log(e);
@@ -62,8 +57,6 @@ const Quiz = (props) => {
     if (quiz) {
         questions = quiz.questions[questionCount];
     }
-    console.log('quiz: ',quiz);
-    console.log('questions: ', questions);
 
     let handleSubmitQuiz = (event) => {
         setSubmitted(true);

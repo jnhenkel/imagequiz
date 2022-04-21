@@ -38,7 +38,16 @@ let apiAccess = {
             console.log(x);
             return x.result;
         });
-    }    
+    },
+
+    getFlowers: () => {
+        return fetch(`${backendAddress}/flowers`)
+        .then(x => x.json())
+        .then(x => {
+            console.log(x);
+            return x.result;
+        })
+    }
 }
 
 export default apiAccess;
