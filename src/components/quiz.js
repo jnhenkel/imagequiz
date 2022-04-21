@@ -120,7 +120,7 @@ const Quiz = (props) => {
                                         </div>
                                         {questionCount >= 5 ?
                                             <div className="card-body">
-                                                Thanks for playing! Your final score is {score}/6 <br /><br />
+                                                Thanks for playing! Your final score is {score}/6 {() => sendScore()}<br /><br />
                                                 <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
                                                 <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
                                             </div>
@@ -140,7 +140,7 @@ const Quiz = (props) => {
                                         </div>
                                         {questionCount >= 5 ?
                                             <div className="card-body">
-                                                Thanks for playing! Your final score is {score}/6 <br /><br />
+                                                Thanks for playing! Your final score is {score}/6 {() => sendScore()}<br /><br />
                                                 <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
                                                 <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
                                                 {
