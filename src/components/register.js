@@ -2,7 +2,6 @@ import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
 import Button from 'react-bootstrap/Button';
-import usersData from '../users';
 import apiAccess from '../communication/APIAccess';
 
 

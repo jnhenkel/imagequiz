@@ -47,6 +47,21 @@ let apiAccess = {
             //console.log(x);
             return x.result;
         })
+    },
+
+    postScore: (quizTaker, quizName, score) => {
+        return fetch(`${backendAddress}/score`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({quizTaker, quizName, score})
+        })
+        .then(x => x.json())
+        .then(x => {
+            console.log(x);
+            return x;
+        })
     }
 }
 

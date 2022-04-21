@@ -67,8 +67,6 @@ const Quiz = (props) => {
     let handleSubmitTryAgain = () => {
 
         setQuestionCount(questionCount + 1);
-
-        //setQuestions(quiz.questions[questionCount]);
         setUserAnswer('');
         setSubmitted(false);
         if (questionCount >= 7) {
@@ -131,6 +129,13 @@ const Quiz = (props) => {
                                         </div>
                                         {questionCount >= 5 ?
                                             <div className="card-body">
+                                                {
+                                                apiAccess.postScore(props.user,props.flowerName,score)
+                                                .catch(e => {
+                                                    console.log(e);
+                                                    alert('There was an error posting score');
+                                                })
+                                                }
                                                 Thanks for playing! Your final score is {score}/6 <br /><br />
                                                 <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
                                                 <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>

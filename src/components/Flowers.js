@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
 import {React, useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import flowers from '../data/flowers.js';
 import apiAccess from '../communication/APIAccess';
 
 const Flowers = (props) => {
