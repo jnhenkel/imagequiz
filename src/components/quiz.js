@@ -21,6 +21,7 @@ const Quiz = (props) => {
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
     const [quiz, setQuiz] = useState(undefined);
+    const [quizFinished, setQuizFinished] = useState(false);
 
     let navigate = useNavigate();
 
@@ -70,9 +71,7 @@ const Quiz = (props) => {
         setQuestionCount(questionCount + 1);
         setUserAnswer('');
         setSubmitted(false);
-        if (questionCount == 5) {
-            sendScore();
-        }
+       
         if (questionCount >= 7) {
             alert('Out of quizzes. Click another picture to try again.');
             navigate('/index');
@@ -92,8 +91,8 @@ const Quiz = (props) => {
         navigate('/quiz');
     }
     let sendScore = () => {
-        //return the promise because its being called from a function
-        return apiAccess.postScore(props.user, props.flowerName, score)
+        setQuizFinished(true);
+        apiAccess.postScore(props.user, props.flowerName, score)
             .then(x => {
                 console.log(x);
                 alert('Score submitted.');
@@ -124,11 +123,21 @@ const Quiz = (props) => {
 
                                         </div>
                                         {questionCount >= 5 ?
-                                            <div className="card-body">
-                                                Thanks for playing! Your final score is {score}/6 <br /><br />
-                                                <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
-                                                <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
-                                            </div>
+                                            <>
+                                            {
+                                                quizFinished ?
+                                                    <div className="card-body">
+                                                        Thanks for playing! Your final score is {score}/6 <br /><br />
+                                                        <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
+                                                        <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
+                                                    </div>
+                                                    :
+                                                    <div className="card-body">
+                                                        You finished the {props.flowerName} quiz! <br/> <br/>
+                                                        <Button id='submitScore' size='lg' onClick={() => sendScore()}>Continue</Button>
+                                                    </div>
+                                            }
+                                            </>
                                             :
                                             <>
                                                 <div className="try-another">
@@ -144,11 +153,21 @@ const Quiz = (props) => {
                                             You are wrong...
                                         </div>
                                         {questionCount >= 5 ?
-                                            <div className="card-body">
-                                                Thanks for playing! Your final score is {score}/6 <br /><br />
-                                                <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
-                                                <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
-                                            </div>
+                                            <>
+                                            {
+                                                quizFinished ?
+                                                    <div className="card-body">
+                                                        Thanks for playing! Your final score is {score}/6 <br /><br />
+                                                        <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
+                                                        <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
+                                                    </div>
+                                                    :
+                                                    <div className="card-body">
+                                                        You finished the {props.flowerName} quiz! <br/> <br/>
+                                                        <Button id='submitScore' size='lg' onClick={() => sendScore()}>Continue</Button>
+                                                    </div>
+                                            }
+                                            </>
                                             :
                                             <>
                                                 <div className="try-another">
