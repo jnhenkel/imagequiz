@@ -29,8 +29,6 @@ const Quiz = (props) => {
         if (!quiz) {
             apiAccess.getQuiz(props.flowerName)
                 .then(x => {
-                    console.log('x: ', x);
-                    console.log('x.questions: ', x.questions);
                     setQuiz(x);
                 })
                 .catch(e => {
@@ -95,7 +93,7 @@ const Quiz = (props) => {
         setQuizFinished(true);
         apiAccess.postScore(props.user, props.flowerName, score)
             .then(x => {
-                console.log(x);
+                //console.log(x);
                 alert('Score submitted.');
             })
             .catch(e => {
