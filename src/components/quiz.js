@@ -63,6 +63,9 @@ const Quiz = (props) => {
         if (userAnswer === questions.answer) {
             handleChangeScore();
         }
+        if (questionCount == 5) {
+            sendScore();
+        }
     }
     let handleSubmitTryAgain = () => {
 
