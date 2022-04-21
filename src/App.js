@@ -38,7 +38,7 @@ function App() {
                 <Route path='/index' element={<Flowers selectedFlower={handleFlowerQuiz} />} />
                 <Route path='/login' element={<Login userLoggedIn={handleLoggedIn} />}  />
                 <Route path='/register' element={<Registration />} />
-                <Route path='/quiz' element={<Quiz flowerName={flowerName} key="quiz_key"/>} />
+                <Route path='/quiz' element={<Quiz flowerName={flowerName} user={user} key="quiz_key"/>} />
             </Routes>
         </Router>
     );
