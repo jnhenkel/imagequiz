@@ -69,6 +69,9 @@ const Quiz = (props) => {
         setQuestionCount(questionCount + 1);
         setUserAnswer('');
         setSubmitted(false);
+        if (questionCount >= 5) {
+            sendScore();
+        }
         if (questionCount >= 7) {
             alert('Out of quizzes. Click another picture to try again.');
             navigate('/index');
@@ -144,16 +147,15 @@ const Quiz = (props) => {
                                                 {
                                                     props.user ?
                                                         <>
-                                                        {sendScore()}
-                                                        Your final score has been submitted to the database
+                                                            Your final score has been submitted to the database
                                                         </>
                                                         :
                                                         <></>
                                                 }
-                                                
+
                                                 <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
                                                 <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
-                                                
+
                                             </div>
                                             :
                                             <>
