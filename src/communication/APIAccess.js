@@ -11,7 +11,7 @@ let apiAccess = {
         })
         .then(x => x.json())
         .then(x => {
-            console.log(x);
+            //console.log(x);
             return x;
         })
     },
@@ -26,7 +26,7 @@ let apiAccess = {
         })
         .then(x => x.json())
         .then(x => {
-            console.log(x);
+            //console.log(x);
             return x;
         })
     },
@@ -35,7 +35,7 @@ let apiAccess = {
         return fetch(`${backendAddress}/quiz/${name}`) 
         .then(x => x.json())
         .then(x => {
-            console.log(x);
+            //console.log(x);
             return x.result;
         });
     },
@@ -44,7 +44,7 @@ let apiAccess = {
         return fetch(`${backendAddress}/flowers`)
         .then(x => x.json())
         .then(x => {
-            console.log(x);
+            //console.log(x);
             return x.result;
         })
     }
