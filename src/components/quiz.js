@@ -27,19 +27,19 @@ const Quiz = (props) => {
     useEffect(() => {
         if (!quiz) {
             apiAccess.getQuiz(props.flowerName)
-            .then(x => {
-                console.log('x: ',x);
-                console.log('x.questions: ', x.questions);
-                setQuiz(x);
-            })
-            .catch(e => {
-                console.log(e);
-                alert('Get quiz had an error.');
-            });
+                .then(x => {
+                    console.log('x: ', x);
+                    console.log('x.questions: ', x.questions);
+                    setQuiz(x);
+                })
+                .catch(e => {
+                    console.log(e);
+                    alert('Get quiz had an error.');
+                });
         }
-        
+
     }, [props]);
-    
+
     //let flowerID;
     //for (let key in quizzes) {
     //    if (quizzes[key].name === props.flowerName) {
@@ -47,12 +47,12 @@ const Quiz = (props) => {
     //    }
     //}
     //let questions = quizzes[flowerID].questions[questionCount];
-//let questions;
-//if (quiz) {
-////questions = quiz.questions[questionCount];
-//} else {
-//////questions = quiz;
-//} 
+    //let questions;
+    //if (quiz) {
+    ////questions = quiz.questions[questionCount];
+    //} else {
+    //////questions = quiz;
+    //} 
     let questions;
     if (quiz) {
         questions = quiz.questions[questionCount];
@@ -86,6 +86,17 @@ const Quiz = (props) => {
         setSubmitted(false);
         setScore(0);
         navigate('/quiz');
+    }
+    let sendScore = () => {
+        apiAccess.postScore(props.user, props.flowerName, score)
+            .then(x => {
+                console.log(x);
+                alert('Score submitted.');
+            })
+            .catch(e => {
+                console.log(e);
+                alert('There was an error posting score');
+            })
     }
     return (
         <div className="container mt-5">
@@ -129,16 +140,15 @@ const Quiz = (props) => {
                                         </div>
                                         {questionCount >= 5 ?
                                             <div className="card-body">
-                                                {
-                                                apiAccess.postScore(props.user,props.flowerName,score)
-                                                .catch(e => {
-                                                    console.log(e);
-                                                    alert('There was an error posting score');
-                                                })
-                                                }
                                                 Thanks for playing! Your final score is {score}/6 <br /><br />
                                                 <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
                                                 <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
+                                                {
+                                                    props.user ?
+                                                        <Button id='submitScore' size='lg' onClick={() => sendScore()}>Submit Score</Button>
+                                                        :
+                                                        <></>
+                                                }
                                             </div>
                                             :
                                             <>
