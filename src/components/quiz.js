@@ -91,6 +91,7 @@ const Quiz = (props) => {
         navigate('/quiz');
     }
     let sendScore = () => {
+        //return the promise because its being called from a function
         return apiAccess.postScore(props.user, props.flowerName, score)
             .then(x => {
                 console.log(x);
@@ -113,7 +114,7 @@ const Quiz = (props) => {
                             <div className="card-body">
 
                                 <div className="answer">
-                                    The plant name is {questions.answer} <br/>question count: {questionCount}
+                                    The plant name is {questions.answer}
                                 </div>
                                 {userAnswer === questions.answer ?
                                     <>
@@ -123,7 +124,7 @@ const Quiz = (props) => {
                                         </div>
                                         {questionCount >= 5 ?
                                             <div className="card-body">
-                                                Thanks for playing! Your final score is {score}/6 <br />question count: {questionCount}<br />
+                                                Thanks for playing! Your final score is {score}/6 <br /><br />
                                                 <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
                                                 <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
                                             </div>
@@ -143,15 +144,9 @@ const Quiz = (props) => {
                                         </div>
                                         {questionCount >= 5 ?
                                             <div className="card-body">
-                                                Thanks for playing! Your final score is {score}/6 <br />question count: {questionCount}<br />
+                                                Thanks for playing! Your final score is {score}/6 <br /><br />
                                                 <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
                                                 <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
-                                                {
-                                                    props.user ?
-                                                        <Button id='submitScore' size='lg' onClick={() => sendScore()}>Submit Score</Button>
-                                                        :
-                                                        <></>
-                                                }
                                             </div>
                                             :
                                             <>
