@@ -109,7 +109,7 @@ body {
   background-color: lightskyblue;
 }
 
-#submitRegister, #submitLogin, #submitTryAgain {
+#submitRegister, #submitLogin, #submitTryAgain, #submitScore {
   width: auto;
   margin: auto;
   margin-top: 16px;

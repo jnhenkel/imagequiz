@@ -69,9 +69,6 @@ const Quiz = (props) => {
         setQuestionCount(questionCount + 1);
         setUserAnswer('');
         setSubmitted(false);
-        if (questionCount >= 5) {
-            sendScore();
-        }
         if (questionCount >= 7) {
             alert('Out of quizzes. Click another picture to try again.');
             navigate('/index');
@@ -144,18 +141,14 @@ const Quiz = (props) => {
                                         {questionCount >= 5 ?
                                             <div className="card-body">
                                                 Thanks for playing! Your final score is {score}/6 <br /><br />
+                                                <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
+                                                <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
                                                 {
                                                     props.user ?
-                                                        <>
-                                                            Your final score has been submitted to the database
-                                                        </>
+                                                        <Button id='submitScore' size='lg' onClick={() => sendScore()}>Submit Score</Button>
                                                         :
                                                         <></>
                                                 }
-
-                                                <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
-                                                <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
-
                                             </div>
                                             :
                                             <>
