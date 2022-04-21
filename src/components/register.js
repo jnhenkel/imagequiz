@@ -105,5 +105,5 @@ const Registration = () => {
         </div>
     )
 }
-const data = { 'users': [] };
+
 export default Registration;

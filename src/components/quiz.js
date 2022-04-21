@@ -63,15 +63,16 @@ const Quiz = (props) => {
         if (userAnswer === questions.answer) {
             handleChangeScore();
         }
-        if (questionCount == 5) {
-            sendScore();
-        }
+        
     }
     let handleSubmitTryAgain = () => {
 
         setQuestionCount(questionCount + 1);
         setUserAnswer('');
         setSubmitted(false);
+        if (questionCount == 5) {
+            sendScore();
+        }
         if (questionCount >= 7) {
             alert('Out of quizzes. Click another picture to try again.');
             navigate('/index');
