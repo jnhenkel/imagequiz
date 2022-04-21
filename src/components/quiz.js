@@ -88,6 +88,7 @@ const Quiz = (props) => {
         setUserAnswer('');
         setSubmitted(false);
         setScore(0);
+        setQuizFinished(false);
         navigate('/quiz');
     }
     let sendScore = () => {
