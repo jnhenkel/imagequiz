@@ -141,14 +141,19 @@ const Quiz = (props) => {
                                         {questionCount >= 5 ?
                                             <div className="card-body">
                                                 Thanks for playing! Your final score is {score}/6 <br /><br />
-                                                <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
-                                                <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
                                                 {
                                                     props.user ?
-                                                        <Button id='submitScore' size='lg' onClick={() => sendScore()}>Submit Score</Button>
+                                                        <>
+                                                        {sendScore()}
+                                                        Your final score has been submitted to the database
+                                                        </>
                                                         :
                                                         <></>
                                                 }
+                                                
+                                                <Button size='lg' onClick={() => navigate('/index')}>Home</Button>
+                                                <Button id='retakeQuizBtn' size='lg' onClick={() => retakeQuiz()}>Retake Quiz</Button>
+                                                
                                             </div>
                                             :
                                             <>
