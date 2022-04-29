@@ -27,6 +27,7 @@ const Quiz = (props) => {
 
     useEffect(() => {
         if (!quiz) {
+            console.log('from useEffect in quiz.js: ', props.flowerName);
             apiAccess.getQuiz(props.flowerName)
                 .then(x => {
                     setQuiz(x);
