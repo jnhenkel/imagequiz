@@ -27,7 +27,7 @@ const NavigationBar = (props) => {
                                     </NavLink>
                                 </li>
                                 <li className='nav-item mx-2'>
-                                <NavLink className='nav-link' to='/index' onClick={logoutHandler}>
+                                <NavLink className='nav-link' to='/logout' onClick={logoutHandler}>
                                     logout
                                 </NavLink>
                             </li>
