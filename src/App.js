@@ -40,7 +40,7 @@ function App() {
                 <Route path='/login' element={<Login userLoggedIn={handleLoggedIn} />}  />
                 <Route path='/register' element={<Registration />} />
                 <Route path='/quiz' element={
-                    <ProtectedRoute customer={customer}>
+                    <ProtectedRoute user={user}>
                         <Quiz flowerName={flowerName} user={user} key="quiz_key"/>
                         </ProtectedRoute>
                     } />
@@ -48,6 +48,14 @@ function App() {
         </Router>
     );
 }
+
+const ProtectedRoute = ({ user, children }) => {  
+    if (custousermer) {
+      return children;
+    } else {
+      return <Navigate to='/login' />;
+    }
+  }
 
 export default App;
 
