@@ -2,9 +2,11 @@ import { NULL } from 'mysql/lib/protocol/constants/types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import apiAccess from '../communication/APIAccess';
-
+import { useNavigate } from 'react-router-dom';
 
 const NavigationBar = (props) => {
+    let navigate = useNavigate();
+
     let logoutHandler = () => {
         apiAccess.logout
         .then(x => {
