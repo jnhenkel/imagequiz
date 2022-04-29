@@ -21,10 +21,11 @@ import Quiz from './components/quiz';
 */
 
 function App() {
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState(localStorage.getItem('user'));
     const [flowerName, setFlowerName] = useState(undefined);
 
     let handleLoggedIn = (email) => {
+        localStorage.setItem('user', user);
         setUser(email);
     }
     let handleFlowerQuiz = (name) => {

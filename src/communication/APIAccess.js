@@ -7,46 +7,62 @@ let apiAccess = {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name, email, password})
+            body: JSON.stringify({ name, email, password })
         })
-        .then(x => x.json())
-        .then(x => {
-            //console.log(x);
-            return x;
-        })
+            .then(x => x.json())
+            .then(x => {
+                //console.log(x);
+                return x;
+            })
     },
 
     login: (email, password) => {
         return fetch(`${backendAddress}/login`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true
             },
-            body: JSON.stringify({email, password})
+            body: JSON.stringify({ email, password })
         })
-        .then(x => x.json())
-        .then(x => {
-            //console.log(x);
-            return x;
-        })
+            .then(x => x.json())
+            .then(x => {
+                //console.log(x);
+                return x;
+            })
     },
 
-    getQuiz: (name) => {//get requests do not need headers, method, body
-        return fetch(`${backendAddress}/quiz/${name}`) 
-        .then(x => x.json())
-        .then(x => {
-            //console.log(x);
-            return x.result;
-        });
+    getQuiz: (name) => {
+        return fetch(`${backendAddress}/quiz/${name}`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true
+            }
+        })
+            .then(x => x.json())
+            .then(x => {
+                //console.log(x);
+                return x.result;
+            });
     },
 
     getFlowers: () => {
-        return fetch(`${backendAddress}/flowers`)
-        .then(x => x.json())
-        .then(x => {
-            //console.log(x);
-            return x.result;
+        return fetch(`${backendAddress}/flowers`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true
+            }
         })
+            .then(x => x.json())
+            .then(x => {
+                //console.log(x);
+                return x.result;
+            })
     },
 
     postScore: (quizTaker, quizName, score) => {
@@ -55,13 +71,13 @@ let apiAccess = {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({quizTaker, quizName, score})
+            body: JSON.stringify({ quizTaker, quizName, score })
         })
-        .then(x => x.json())
-        .then(x => {
-            //console.log(x);
-            return x;
-        })
+            .then(x => x.json())
+            .then(x => {
+                //console.log(x);
+                return x;
+            })
     }
 }
 
