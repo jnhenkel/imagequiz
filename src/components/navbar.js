@@ -7,6 +7,10 @@ import apiAccess from '../communication/APIAccess';
 const NavigationBar = (props) => {
     let logoutHandler = () => {
         apiAccess.logout
+        .then(x => {
+            props.userLoggedIn(undefined);
+            navigate('/index');
+        })
         .catch(e => {
             console.log(e);
             alert('error logging out');
