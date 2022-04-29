@@ -10,7 +10,7 @@ const NavigationBar = (props) => {
                 <div className='container-fluid'>
                     <ul id='navBar' className='navbar-nav ml-auto' >
                         {
-                            props.user ?
+                            props.user && props.user != 'null' ?
                                 <li className='nav-item mx-2'>
                                     <NavLink className='nav-link' to='/index'>
                                         Signed in as: {props.user}
