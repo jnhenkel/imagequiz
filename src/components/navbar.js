@@ -1,3 +1,4 @@
+import { NULL } from 'mysql/lib/protocol/constants/types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -10,7 +11,7 @@ const NavigationBar = (props) => {
                 <div className='container-fluid'>
                     <ul id='navBar' className='navbar-nav ml-auto' >
                         {
-                            props.user && props.user != 'null' ?
+                            props.user && props.user != NULL ?
                                 <li className='nav-item mx-2'>
                                     <NavLink className='nav-link' to='/index'>
                                         Signed in as: {props.user}
