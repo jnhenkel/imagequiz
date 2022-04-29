@@ -1,9 +1,17 @@
 import { NULL } from 'mysql/lib/protocol/constants/types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import apiAccess from '../communication/APIAccess';
 
 
 const NavigationBar = (props) => {
+    let logoutHandler = () => {
+        apiAccess.logout
+        .catch(e => {
+            console.log(e);
+            alert('error logging out');
+        })
+    }
 
     return (
         <div className='navigation'>
@@ -12,11 +20,18 @@ const NavigationBar = (props) => {
                     <ul id='navBar' className='navbar-nav ml-auto' >
                         {
                             props.user && props.user != NULL ?
+                                <>
                                 <li className='nav-item mx-2'>
                                     <NavLink className='nav-link' to='/index'>
                                         Signed in as: {props.user}
                                     </NavLink>
                                 </li>
+                                <li className='nav-item mx-2'>
+                                <NavLink className='nav-link' to='/' onClick={logoutHandler}>
+                                    login
+                                </NavLink>
+                            </li>
+                            </>
                                 :
                                 <>
                                     <li className='nav-item mx-2'>

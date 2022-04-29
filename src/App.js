@@ -31,6 +31,7 @@ function App() {
     let handleFlowerQuiz = (name) => {
         setFlowerName(name);
     }
+    
     return (
         <Router>
             <NavigationBar user={user} />
@@ -38,6 +39,7 @@ function App() {
                 <Route path='/imagequiz' element={<Flowers selectedFlower={handleFlowerQuiz} />} />
                 <Route path='/index' element={<Flowers selectedFlower={handleFlowerQuiz} />} />
                 <Route path='/login' element={<Login userLoggedIn={handleLoggedIn} />}  />
+                
                 <Route path='/register' element={<Registration />} />
                 <Route path='/quiz' element={
                     <ProtectedRoute user={user}>
