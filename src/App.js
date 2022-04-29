@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Navigate, BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Flowers from './components/Flowers';
 import Login from './components/login';
 import NavigationBar from './components/navbar';
@@ -50,7 +50,7 @@ function App() {
 }
 
 const ProtectedRoute = ({ user, children }) => {  
-    if (custousermer) {
+    if (user) {
       return children;
     } else {
       return <Navigate to='/login' />;
