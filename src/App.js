@@ -25,7 +25,7 @@ function App() {
     const [flowerName, setFlowerName] = useState(undefined);
 
     let handleLoggedIn = (email) => {
-        localStorage.setItem('user', user);
+        localStorage.setItem('user', email);
         setUser(email);
     }
     let handleFlowerQuiz = (name) => {
