@@ -34,7 +34,7 @@ function App() {
 
     return (
         <Router>
-            <NavigationBar user={user} />
+            <NavigationBar user={user} userLoggedIn={handleLoggedIn}/>
             <Routes>
                 <Route path='/imagequiz' element={<Flowers selectedFlower={handleFlowerQuiz} />} />
                 <Route path='/index' element={<Flowers selectedFlower={handleFlowerQuiz} />} />
