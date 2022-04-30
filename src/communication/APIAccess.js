@@ -52,7 +52,10 @@ let apiAccess = {
         return fetch(`${backendAddress}/quiz/${name}`, {
             method: 'GET',
             credentials: 'include',
-            
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true
+            }
         })
             .then(x => x.json())
             .then(x => {
