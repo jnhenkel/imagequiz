@@ -7,6 +7,7 @@ import Login from './components/login';
 import NavigationBar from './components/navbar';
 import Registration from './components/register';
 import Quiz from './components/quiz';
+import { NULL } from 'mysql/lib/protocol/constants/types';
 
 /*
 * A note about Route paths below:
