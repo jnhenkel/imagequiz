@@ -8,7 +8,7 @@ const NavigationBar = (props) => {
     let navigate = useNavigate();
 
     let logoutHandler = () => {
-        apiAccess.logout
+        apiAccess.logout()
         .then(x => {
             props.userLoggedIn(undefined);
             navigate('/index');
