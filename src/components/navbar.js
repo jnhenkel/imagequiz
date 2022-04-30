@@ -10,7 +10,7 @@ const NavigationBar = (props) => {
     let logoutHandler = () => {
         apiAccess.logout()
         .then(x => {
-            props.userLoggedIn(undefined);
+            props.userLoggedIn(localStorage.getItem('user'));
             navigate('/index');
         })
         .catch(e => {
